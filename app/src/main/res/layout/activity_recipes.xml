@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wmbackground"
+    tools:context=".RecipesActivity"
+    tools:ignore="MergeRootFrame">
+    
+    <SearchView
+        android:id="@+id/SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="true" >
+   </SearchView>
+   
+ <TextView
+     android:id="@+id/RecipesEmpty"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:gravity="center|center_vertical"
+     android:text="@string/NoRecipes" />
+
+   <ListView
+       android:id="@+id/RecipesList"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:divider="@null" />
+    
+ </FrameLayout>

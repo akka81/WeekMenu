@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Week Menu</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Week Menu</string>
+    <string name="title_activity_recipes">Recipes</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_schedule">Menu</string>
+    <string name="menu_recipes">Recipes</string>
+    <string name="recipe_namelbl">Name</string>
+    <string name="recipe_descrlbl">Description</string>
+    <string name="recipe_typelbl">Type</string>
+    <string name="recipe_makelbl">Make time</string>
+    <string name="recipe_pleaslbl">Rating:</string>
+    <string name="recipe_ingrlbl">INGREDIENTS</string>
+    <string name="action_recipe_edit">Edit</string>
+    <string name="search_hint">Search recipes&#8230;</string>
+    <string name="title_activity_recipes_search">Recipes Search</string>
+    <string name="title_activity_recipe_detail">Recipe</string>
+    <string name="menu_seach">Search</string>
+    <string name="NoRecipes">No recipes saved</string>
+    <string name="title_activity_new_recipe">New Recipe</string>
+    <string name="menu_newrecipe">New</string>
+    <string name="AppetizerKey">Appetizer</string>
+    <string name="MainCourseKey">Main Course</string>
+    <string name="MainCourse2Key">Main Course 2</string>
+    <string name="StarterKey">Starter</string>
+    <string name="DessertKey">Dessert</string>
+    <string name="Save_Recipe">Save</string>
+    <string name="GramKey">gr</string>
+    <string name="MilliLiterKey">ml</string>
+    <string name="KilogramKey">Kg</string>
+	<string name="BtnAdd">Add</string>
+	<string name="IngDelBtn">X</string>
+	<string name="IngRemoved">Ingredient Removed</string>
+	<string name="RecipeSaved">Recipe Saved!!</string>
+</resources>

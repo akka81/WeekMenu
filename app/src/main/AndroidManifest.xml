@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hware.weekmenu"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="13"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icona_app"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="hware.weekmenu.LoaderActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="hware.weekmenu.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="hware.weekmenu.RecipesActivity"
+            android:label="@string/title_activity_recipes"
+            android:parentActivityName="hware.weekmenu.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hware.weekmenu.MainActivity" />
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="hware.weekmenu.RecipesSearch" />
+        </activity>
+        <activity
+            android:name="hware.weekmenu.RecipeDetailActivity"
+            android:label="@string/title_activity_recipe_detail"
+            android:parentActivityName="hware.weekmenu.RecipesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hware.weekmenu.RecipesActivity" />
+        </activity>
+        <activity
+            android:name="hware.weekmenu.RecipesSearch"
+            android:label="@string/title_activity_recipes_search"
+            android:launchMode="singleTop"
+            android:parentActivityName="hware.weekmenu.RecipesActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hware.weekmenu.RecipesActivity" />
+        </activity>
+        <activity
+            android:name="hware.weekmenu.NewRecipeActivity"
+            android:label="@string/title_activity_new_recipe"
+            android:parentActivityName="hware.weekmenu.RecipesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hware.weekmenu.RecipesActivity" />
+        </activity>
+    </application>
+
+</manifest>

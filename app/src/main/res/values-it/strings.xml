@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Week Menu</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section1">Section 1</string>
+    <string name="menu_settings">Impostazioni</string>
+    <string name="title_activity_main">Week Menu</string>
+    <string name="title_activity_recipes">Ricette</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="menu_schedule">Menu</string>
+    <string name="menu_recipes">Ricette</string>
+    <string name="VeryHardKey">Molto Difficile</string>
+    <string name="HardKey">Difficile</string>
+    <string name="MediumKey">Media</string>
+    <string name="EasyKey">Facile</string>
+    <string name="title_activity_recipe_detail">Ricetta</string>
+    <string name="title_activity_new_recipe">Nuova Ricetta</string>
+    <string name="recipe_namelbl">Nome</string>
+    <string name="recipe_descrlbl">Descrizione</string>
+    <string name="recipe_typelbl">Tipo</string>
+    <string name="recipe_makelbl">Tempo di preparazione</string>
+    <string name="recipe_pleaslbl">Voto</string>
+    <string name="recipe_ingrlbl">Ingredienti</string>
+    <string name="action_recipe_edit">Modifica</string>
+    <string name="search_hint">Cerca ricetta&#8230;</string>
+    <string name="NoRecipes">Nessuna ricetta salvata</string>
+    <string name="menu_newrecipe">Aggiungi</string>
+    <string name="AppetizerKey">Antipasto</string>
+    <string name="MainCourseKey">Secondo</string>
+    <string name="MainCourse2Key">Piatto unico</string>
+    <string name="StarterKey">Primo</string>
+    <string name="DessertKey">Dolce</string>
+    <string name="Save_Recipe">Salva</string>
+    <string name="GramKey">gr</string>
+    <string name="MilliLiterKey">ml</string>
+    <string name="KilogramKey">Kg</string>
+    <string name="BtnAdd">Aggiungi</string>
+    <string name="IngDelBtn">X</string>
+    <string name="IngRemoved">Ingrediente rimosso</string>
+    <string name="RecipeSaved">Ricetta salvata!!</string>
+</resources>
