@@ -1,5 +1,7 @@
 package hware.weekmenu.BusinessLogic.Entities;
 
+import android.text.TextUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +56,21 @@ public class Recipe {
 	private int MakeTime;
 	public int getMakeTime(){return this.MakeTime;}
 	public void setMakeTime(int value){this.MakeTime = value;}
+
+    public String StringifyIngredients()
+    {
+        String ingredientsString = "";
+        ArrayList<Ingredient> ingredients = this.getIngredients();
+
+        String IngredientStr="";
+        for(Ingredient ing : ingredients)
+        {
+            IngredientStr += ing.getName() + ing.getQuantity() + ing.getMeasure() + ", ";
+        }
+
+        return IngredientStr;
+
+    }
  	
 
 }

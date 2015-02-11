@@ -35,4 +35,5 @@
 	<string name="IngDelBtn">X</string>
 	<string name="IngRemoved">Ingredient Removed</string>
 	<string name="RecipeSaved">Recipe Saved!!</string>
+    <string name="action_recipe_delete">Delete</string>
 </resources>

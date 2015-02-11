@@ -110,9 +110,7 @@ public class NewRecipeActivity extends Activity {
 	//save Recipe
 	private void SaveRecipe()
 	{
-		DataProvider WMProvider = new DataProvider(getBaseContext());
-		SQLiteDatabase WmDb = WMProvider.getWritableDatabase();
-		
+
 		//insert  recipe into Db
 		Recipe rec = new Recipe();
 		rec.setIsFromWoodRestaurant(false);

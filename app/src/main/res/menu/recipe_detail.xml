@@ -4,6 +4,13 @@
         android:id="@+id/recipe_edit"
         android:orderInCategory="100"
         android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/modifica"
         android:title="@string/action_recipe_edit"/>
+
+    <item
+        android:id="@+id/recipe_delete"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_recipe_delete"/>
 
 </menu>

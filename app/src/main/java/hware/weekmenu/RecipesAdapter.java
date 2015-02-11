@@ -4,6 +4,8 @@ import java.util.List;
 
 import hware.weekmenu.BusinessLogic.Entities.Recipe;
 import hware.weekmenu.BusinessLogic.Entities.RecipeType;
+import hware.weekmenu.BusinessLogic.Managers.RecipeManager;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,30 +55,10 @@ public class RecipesAdapter extends ArrayAdapter<Recipe> {
 		recipeType.setText(ctx.getResources().getString(RecTypeId));
 		
 		//setting image by rating
-		float pleasure = recipe.getPleasure();
-		int pleasureImg = -1;
-		if(pleasure>0  && pleasure <1){pleasureImg = R.drawable.stelle_05;}
-		else if(pleasure == 1){pleasureImg = R.drawable.stelle_1;}
-		else if(pleasure>1 && pleasure <2){pleasureImg = R.drawable.stelle_15;}
-		else if (pleasure ==2){pleasureImg = R.drawable.stelle_2;}
-		else if (pleasure>2 && pleasure <3){pleasureImg = R.drawable.stelle_25;}
-		else if(pleasure == 3){pleasureImg = R.drawable.stelle_3;}
-		else if (pleasure>3 && pleasure <4){pleasureImg = R.drawable.stelle_35;}
-		else if(pleasure == 4){pleasureImg = R.drawable.stelle_4;}
-		else if (pleasure>4 && pleasure <5){pleasureImg = R.drawable.stelle_45;}
-		else
-			pleasureImg = R.drawable.stelle_5;
-		recipePleasuer.setImageResource(pleasureImg);
+		recipePleasuer.setImageResource(RecipeManager.GetRecipePleasureIcon(recipe.getPleasure()));
         //setting recipe type image  --> implement type switch	
 		RecipeType rt =  recipe.getRecipeType();
-		int recipeImg=-1;
-		if(rt ==  RecipeType.Appetizer){recipeImg = R.drawable.antipasti;}
-		else if (rt == RecipeType.Dessert ){ recipeImg = R.drawable.dolci;}
-		else if(rt ==  RecipeType.MainCourse){recipeImg = R.drawable.secondi;}
-		else if (rt == RecipeType.MainCourse2){recipeImg = R.drawable.piattounico;}
-		else if (rt == RecipeType.Starter){recipeImg = R.drawable.primi;}
-		
-		recipeIcon.setImageResource(recipeImg);	
+		recipeIcon.setImageResource(RecipeManager.GetRecipeImage(rt));
 		return RecipesList;
 	}
 	

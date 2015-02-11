@@ -2,14 +2,20 @@ package hware.weekmenu;
 
 import hware.weekmenu.BusinessLogic.Entities.Recipe;
 import hware.weekmenu.BusinessLogic.Entities.Ingredient;
+import hware.weekmenu.BusinessLogic.Managers.RecipeManager;
+
+import android.app.TabActivity;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
-public class RecipeDetailActivity extends Activity {
+public class RecipeDetailActivity extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,6 @@ public class RecipeDetailActivity extends Activity {
 	private void setupActionBar() {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
 	/* menu region */
@@ -55,6 +60,10 @@ public class RecipeDetailActivity extends Activity {
 		case R.id.recipe_edit:
 			//start edit action
 			return true;
+
+            case R.id.recipe_delete:
+
+                return true;
 		}
 		
 		return super.onOptionsItemSelected(item);
@@ -65,37 +74,56 @@ public class RecipeDetailActivity extends Activity {
 	
 	private void FillRecipeDetail()
 	{
-		Recipe SelectedRecipe = new Recipe();
 		//get item passed to action
 		Bundle RecId = getIntent().getExtras();
-		int value = RecId.getInt("ID");
-		
-		
-		
-		
+		int recIdValue = RecId.getInt("ID");
+
+        //get selected recipe from DB
+        RecipeManager rMng = new RecipeManager(getBaseContext());
+        Recipe recipe = rMng.GetRecipeById(recIdValue);
+
+
 		//filling form
 		TextView rname =  (TextView)this.findViewById(R.id.RecipeDetail_Name);
-		//rname.setText(SelectedRecipe.getName());
-		rname.setText(String.valueOf(value));
-		//TextView rType = (TextView)this.findViewById(R.id.RecipeDetail_Type);
-		//rType.setText(SelectedRecipe.getRecipeType().toString());
-		
-		 //use rating bar in readonly mode
-		//TextView rPleas = (TextView)this.findViewById(R.id.RecipeDetail_Pleas);
-		//rPleas.setText(SelectedRecipe.getPleasure().toString());
-		
-		//TextView rDescr = (TextView)this.findViewById(R.id.RecipeDetail_Descr);
-		//rDescr.setText(SelectedRecipe.getDescr());
-		
+		rname.setText(recipe.getName());
+
+		TextView rType = (TextView)this.findViewById(R.id.RecipeDetail_Type);
+        Context ctx = getBaseContext();
+        int RecTypeId = ctx.getResources().getIdentifier(recipe.getRecipeTypeName(),"string",ctx.getPackageName());
+		rType.setText(ctx.getResources().getString(RecTypeId));
+
+		TextView rDescr = (TextView)this.findViewById(R.id.RecipeDetail_Descr);
+		rDescr.setText(recipe.getDescr());
+
+        TextView rTime = (TextView)this.findViewById(R.id.RecipeDetail_Time);
+        rTime.setText(String.valueOf(recipe.getMakeTime()));
+
+        TextView rIngredients = (TextView) this.findViewById(R.id.RecipeDetail_Ingredients);
+        rIngredients.setText(recipe.StringifyIngredients());
+
 		//set image to display
-		
-		
-		
-		
-		
-		
+        ImageView rIcon = (ImageView)this.findViewById(R.id.RecipeDetailImage);
+        rIcon.setImageResource(RecipeManager.GetRecipeImage(recipe.getRecipeType()));
+        //set pleasure level
+        ImageView rPleasure = (ImageView)this.findViewById((R.id.RecipeDetail_PleasImg));
+        rPleasure.setImageResource(RecipeManager.GetRecipePleasureIcon(recipe.getPleasure()));
+
 	}
 	
-	
+
+    private void DeleteRecipe()
+    {
+        //ask confirm
+
+        //delete
+
+        //toast deletion message
+    }
+
+    private void ToUpdateView()
+    {
+        //go to edit view, with recipe id
+
+    }
 	
 }
