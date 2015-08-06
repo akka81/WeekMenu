@@ -20,6 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import hware.weekmenu.BusinessLogic.Common.Environment;
 import hware.weekmenu.BusinessLogic.Entities.*;
 import hware.weekmenu.BusinessLogic.Managers.RecipeManager;
 import hware.weekmenu.BusinessLogic.Managers.SpinnerManager;
@@ -35,7 +37,8 @@ public class NewRecipeActivity extends Activity {
 	int IngDelBtnBaseId = 400;
 	int IngredientsAdded =0;
 	int LastBaseId = 100;
-	
+	int recipeId;
+	boolean isEdit= false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,12 @@ public class NewRecipeActivity extends Activity {
 		setContentView(R.layout.activity_new_recipe);	
 		//navigate back to recipes list
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		
+
+		//check if is Edit
+		Bundle RecId = getIntent().getExtras();
+		this.recipeId = RecId.getInt(Environment.Activities.RecipeID);
+		this.isEdit = RecId.getBoolean(Environment.Activities.IsEdit);
+
 		//populate activity spinners
 		Spinner TypeSpin = (Spinner) findViewById(R.id.rec_spinnerType);
 		SpinnerManager SpinnerMng = new SpinnerManager(getBaseContext());

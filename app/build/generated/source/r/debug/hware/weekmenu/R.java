@@ -19,7 +19,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int buttonBarStyle=0x7f010000;
     }
     public static final class color {
-        public static final int black_overlay=0x7f050000;
+        public static final int black_overlay=0x7f080000;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
@@ -111,66 +111,66 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int recipes_search=0x7f090005;
     }
     public static final class string {
-        public static final int AppetizerKey=0x7f070000;
-        public static final int BtnAdd=0x7f070001;
-        public static final int DessertKey=0x7f070002;
-        public static final int EasyKey=0x7f070023;
-        public static final int GramKey=0x7f070003;
-        public static final int HardKey=0x7f070024;
-        public static final int IngDelBtn=0x7f070004;
-        public static final int IngRemoved=0x7f070005;
-        public static final int KilogramKey=0x7f070006;
-        public static final int MainCourse2Key=0x7f070007;
-        public static final int MainCourseKey=0x7f070008;
-        public static final int MediumKey=0x7f070025;
-        public static final int MilliLiterKey=0x7f070009;
-        public static final int NoRecipes=0x7f07000a;
-        public static final int RecipeSaved=0x7f07000b;
-        public static final int Save_Recipe=0x7f07000c;
-        public static final int StarterKey=0x7f07000d;
-        public static final int VeryHardKey=0x7f070026;
-        public static final int action_recipe_delete=0x7f07000e;
-        public static final int action_recipe_edit=0x7f07000f;
-        public static final int action_settings=0x7f070010;
-        public static final int app_name=0x7f070011;
-        public static final int menu_newrecipe=0x7f070012;
-        public static final int menu_recipes=0x7f070013;
-        public static final int menu_schedule=0x7f070014;
-        public static final int menu_seach=0x7f070015;
-        public static final int menu_settings=0x7f070016;
-        public static final int recipe_descrlbl=0x7f070017;
-        public static final int recipe_ingrlbl=0x7f070018;
-        public static final int recipe_makelbl=0x7f070019;
-        public static final int recipe_namelbl=0x7f07001a;
-        public static final int recipe_pleaslbl=0x7f07001b;
-        public static final int recipe_typelbl=0x7f07001c;
-        public static final int search_hint=0x7f07001d;
-        public static final int title_activity_main=0x7f07001e;
-        public static final int title_activity_new_recipe=0x7f07001f;
-        public static final int title_activity_recipe_detail=0x7f070020;
-        public static final int title_activity_recipes=0x7f070021;
-        public static final int title_activity_recipes_search=0x7f070022;
-        public static final int title_section1=0x7f070027;
-        public static final int title_section2=0x7f070028;
-        public static final int title_section3=0x7f070029;
+        public static final int AppetizerKey=0x7f050000;
+        public static final int BtnAdd=0x7f050001;
+        public static final int DessertKey=0x7f050002;
+        public static final int EasyKey=0x7f050003;
+        public static final int GramKey=0x7f050004;
+        public static final int HardKey=0x7f050005;
+        public static final int IngDelBtn=0x7f050006;
+        public static final int IngRemoved=0x7f050007;
+        public static final int KilogramKey=0x7f050008;
+        public static final int MainCourse2Key=0x7f050009;
+        public static final int MainCourseKey=0x7f05000a;
+        public static final int MediumKey=0x7f05000b;
+        public static final int MilliLiterKey=0x7f05000c;
+        public static final int NoRecipes=0x7f05000d;
+        public static final int RecipeSaved=0x7f05000e;
+        public static final int Save_Recipe=0x7f05000f;
+        public static final int StarterKey=0x7f050010;
+        public static final int VeryHardKey=0x7f050011;
+        public static final int action_recipe_delete=0x7f050012;
+        public static final int action_recipe_edit=0x7f050013;
+        public static final int action_settings=0x7f050014;
+        public static final int app_name=0x7f050015;
+        public static final int menu_newrecipe=0x7f050016;
+        public static final int menu_recipes=0x7f050017;
+        public static final int menu_schedule=0x7f050018;
+        public static final int menu_seach=0x7f050028;
+        public static final int menu_settings=0x7f050019;
+        public static final int recipe_descrlbl=0x7f05001a;
+        public static final int recipe_ingrlbl=0x7f05001b;
+        public static final int recipe_makelbl=0x7f05001c;
+        public static final int recipe_namelbl=0x7f05001d;
+        public static final int recipe_pleaslbl=0x7f05001e;
+        public static final int recipe_typelbl=0x7f05001f;
+        public static final int search_hint=0x7f050020;
+        public static final int title_activity_main=0x7f050021;
+        public static final int title_activity_new_recipe=0x7f050022;
+        public static final int title_activity_recipe_detail=0x7f050023;
+        public static final int title_activity_recipes=0x7f050024;
+        public static final int title_activity_recipes_search=0x7f050029;
+        public static final int title_section1=0x7f050025;
+        public static final int title_section2=0x7f050026;
+        public static final int title_section3=0x7f050027;
     }
     public static final class style {
-        /** 
+        /**  API 11 theme customizations can go here. 
+ API 14 theme customizations can go here. 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- API 11 theme customizations can go here. 
- API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int ButtonBar=0x7f080002;
-        public static final int ButtonBarButton=0x7f080003;
-        public static final int FullscreenActionBarStyle=0x7f080005;
-        public static final int FullscreenTheme=0x7f080004;
+        public static final int AppTheme=0x7f070003;
+        public static final int ButtonBar=0x7f070004;
+        public static final int ButtonBarButton=0x7f070005;
+        public static final int FullscreenActionBarStyle=0x7f070001;
+        public static final int FullscreenTheme=0x7f070002;
     }
     public static final class xml {
         public static final int searchable=0x7f040000;

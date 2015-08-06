@@ -6,6 +6,7 @@ import hware.weekmenu.BusinessLogic.Managers.RecipeManager;
 
 import android.app.TabActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class RecipeDetailActivity extends FragmentActivity {
+
+	int recipeId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +50,21 @@ public class RecipeDetailActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		case R.id.recipe_edit:
-			//start edit action
-			return true;
+			case android.R.id.home:
+				NavUtils.navigateUpFromSameTask(this);
+				return true;
 
-            case R.id.recipe_delete:
+			case R.id.recipe_edit:
+				//start edit action
 
-                return true;
+
+				return true;
+
+			case R.id.recipe_delete:
+				//display confirm dialog
+
+				return true;
+
 		}
 		
 		return super.onOptionsItemSelected(item);
@@ -76,11 +77,11 @@ public class RecipeDetailActivity extends FragmentActivity {
 	{
 		//get item passed to action
 		Bundle RecId = getIntent().getExtras();
-		int recIdValue = RecId.getInt("ID");
+		this.recipeId = RecId.getInt("ID");
 
         //get selected recipe from DB
         RecipeManager rMng = new RecipeManager(getBaseContext());
-        Recipe recipe = rMng.GetRecipeById(recIdValue);
+        Recipe recipe = rMng.GetRecipeById(this.recipeId);
 
 
 		//filling form
@@ -123,7 +124,12 @@ public class RecipeDetailActivity extends FragmentActivity {
     private void ToUpdateView()
     {
         //go to edit view, with recipe id
-
+		Intent EditRecipe = new Intent(RecipeDetailActivity.this,NewRecipeActivity.class);
+		Bundle recid = new Bundle();
+		recid.putInt("ID", this.recipeId);
+		recid.putBoolean("IsEdit",true);
+		EditRecipe.putExtras(recid);
+		startActivity(EditRecipe);
     }
 	
 }
