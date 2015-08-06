@@ -1,9 +1,12 @@
 package hware.weekmenu;
 
+import hware.weekmenu.BusinessLogic.Common.DeleteRecipeDialog;
+import hware.weekmenu.BusinessLogic.Common.Environment;
 import hware.weekmenu.BusinessLogic.Entities.Recipe;
 import hware.weekmenu.BusinessLogic.Entities.Ingredient;
 import hware.weekmenu.BusinessLogic.Managers.RecipeManager;
 
+import android.app.DialogFragment;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +18,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
+import android.support.v4.app.FragmentManager;
+import android.widget.Toast;
 
 public class RecipeDetailActivity extends FragmentActivity {
 
@@ -56,13 +61,17 @@ public class RecipeDetailActivity extends FragmentActivity {
 
 			case R.id.recipe_edit:
 				//start edit action
-
+				ToUpdateView();
 
 				return true;
 
 			case R.id.recipe_delete:
 				//display confirm dialog
-
+				DialogFragment deleteAlert = new DeleteRecipeDialog();
+				Bundle bundle = new Bundle();
+				bundle.putInt(Environment.Activities.RecipeID,recipeId);
+				deleteAlert.setArguments(bundle);
+				deleteAlert.show(getFragmentManager(),"DeleteDialog");
 				return true;
 
 		}
@@ -72,12 +81,12 @@ public class RecipeDetailActivity extends FragmentActivity {
 
 	/* end menu region*/
 	
-	
+	//binds data to activity
 	private void FillRecipeDetail()
 	{
 		//get item passed to action
 		Bundle RecId = getIntent().getExtras();
-		this.recipeId = RecId.getInt("ID");
+		this.recipeId = RecId.getInt(Environment.Activities.RecipeID);
 
         //get selected recipe from DB
         RecipeManager rMng = new RecipeManager(getBaseContext());
@@ -117,8 +126,10 @@ public class RecipeDetailActivity extends FragmentActivity {
         //ask confirm
 
         //delete
-
+		RecipeManager recipeManager = new RecipeManager(getBaseContext());
+		recipeManager.DeleteRecipe(this.recipeId);
         //toast deletion message
+		Toast.makeText(getBaseContext(), R.string.RecipeDeleted, Toast.LENGTH_SHORT).show();
     }
 
     private void ToUpdateView()
@@ -126,8 +137,8 @@ public class RecipeDetailActivity extends FragmentActivity {
         //go to edit view, with recipe id
 		Intent EditRecipe = new Intent(RecipeDetailActivity.this,NewRecipeActivity.class);
 		Bundle recid = new Bundle();
-		recid.putInt("ID", this.recipeId);
-		recid.putBoolean("IsEdit",true);
+		recid.putInt(Environment.Activities.RecipeID, this.recipeId);
+		recid.putBoolean(Environment.Activities.IsEdit, true);
 		EditRecipe.putExtras(recid);
 		startActivity(EditRecipe);
     }

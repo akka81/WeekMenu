@@ -36,4 +36,8 @@
 	<string name="IngRemoved">Ingredient Removed</string>
 	<string name="RecipeSaved">Recipe Saved!!</string>
     <string name="action_recipe_delete">Delete</string>
+    <string name="RecipeDeleted">Recipe has been deleted successfully</string>
+    <string name="DeleteRecipeDialogTilte">Delete this recipe?</string>
+    <string name="DeleteRecipeDialogOk">Ok</string>
+    <string name="DeleteRecipeDialogCancel">Cancel</string>
 </resources>

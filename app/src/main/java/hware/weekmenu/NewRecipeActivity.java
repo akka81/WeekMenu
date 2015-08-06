@@ -49,18 +49,19 @@ public class NewRecipeActivity extends Activity {
 
 		//check if is Edit
 		Bundle RecId = getIntent().getExtras();
-		this.recipeId = RecId.getInt(Environment.Activities.RecipeID);
-		this.isEdit = RecId.getBoolean(Environment.Activities.IsEdit);
-
+		if(RecId != null) {
+			this.recipeId = RecId.getInt(Environment.Activities.RecipeID);
+			this.isEdit = RecId.getBoolean(Environment.Activities.IsEdit);
+		}
 		//populate activity spinners
 		Spinner TypeSpin = (Spinner) findViewById(R.id.rec_spinnerType);
 		SpinnerManager SpinnerMng = new SpinnerManager(getBaseContext());
-		ArrayAdapter<SpinnerItem> SpinnerAdapter = new ArrayAdapter<SpinnerItem>(this,android.R.layout.simple_spinner_item,SpinnerMng.GetRecipeTypes());
+		ArrayAdapter<SpinnerItem> SpinnerAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,SpinnerMng.GetRecipeTypes());
 		SpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		TypeSpin.setAdapter(SpinnerAdapter);
 		
 		//populate ingredients Type
-		MeasuresSpnAdapter = new ArrayAdapter<SpinnerItem>(this,android.R.layout.simple_spinner_dropdown_item,SpinnerMng.GetMeasures());
+		MeasuresSpnAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,SpinnerMng.GetMeasures());
 		Spinner MeasSpin = (Spinner)findViewById(R.id.ing_quantityType);
 		MeasSpin.setAdapter(MeasuresSpnAdapter);
 		
@@ -131,14 +132,16 @@ public class NewRecipeActivity extends Activity {
 		rec.setPleasure(((RatingBar)findViewById(R.id.rec_rating)).getRating());
 		
 		//insert ingredients
-		ArrayList<Ingredient> RecIngredients = new ArrayList<Ingredient>();
+		ArrayList<Ingredient> RecIngredients = new ArrayList<>();
 		
 		//getting default ingredient
-		RecIngredients.add(GetIngredient(R.id.ing_name,R.id.ing_quantity,R.id.ing_quantityType));
+		Ingredient newIng = GetIngredient(R.id.ing_name, R.id.ing_quantity, R.id.ing_quantityType);
+		if(newIng!= null)
+			RecIngredients.add(newIng);
 		//reading other ingredient
 		for(int i=LastBaseId; i>=100;i--)
 		{
-			Ingredient newIng = GetIngredient(i,i+100,i+200);
+			newIng = GetIngredient(i,i+100,i+200);
 			if(newIng != null)
 				RecIngredients.add(newIng);
 		}
@@ -254,7 +257,7 @@ public class NewRecipeActivity extends Activity {
 	//delete an ingredient
 	private void DeleteIngredientControls(View btn)
 	{
-		 int BelowTo=0;
+		 int BelowTo;
 		 RelativeLayout NewRecipeLayout = (RelativeLayout)findViewById(R.id.rec_relcontainer);
 		
 		 //getting ingredient row and deleting controls
@@ -264,7 +267,7 @@ public class NewRecipeActivity extends Activity {
 		 EditText IngNameTbx = (EditText)findViewById(btn.getId()-300);
 		 EditText IngQuantityTbx = (EditText)findViewById(btn.getId()-200);
 		 Spinner IngQuantitySpn = (Spinner)findViewById(btn.getId()-100);
-		 EditText PrevIngNameTbx =null;
+		 EditText PrevIngNameTbx;
 		 
 		 //adjust view layout to fit the deleted row hole
 		 EditText NextIngNameTbx = null;

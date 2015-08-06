@@ -3,7 +3,7 @@ package hware.weekmenu.BusinessLogic.Common;
 /**
  * WeekMenu environment constants
  */
-public final class Environment {
+public class Environment {
 
     //activities constants
     public static class Activities
