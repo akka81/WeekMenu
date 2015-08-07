@@ -19,6 +19,7 @@ build/
 
 #android studio
 .idea
+*.iml
 
 # Local configuration file (sdk path, etc)
 local.properties
