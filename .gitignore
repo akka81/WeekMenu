@@ -16,6 +16,7 @@ gen/
 .gradle/
 build/
 /*/build/
+gradle.properties
 
 #android studio
 .idea
