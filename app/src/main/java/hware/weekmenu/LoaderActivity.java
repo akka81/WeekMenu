@@ -102,7 +102,7 @@ public class LoaderActivity extends Activity {
 		}	
 		catch(InterruptedException ex){}
 	}
-	 
+	 //test
 	private void doUpdateGUI()
 	{
 		Intent intent = new Intent(this,MainActivity.class);
